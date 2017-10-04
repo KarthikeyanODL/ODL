@@ -1,0 +1,45 @@
+module test {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:test";
+    prefix "test";
+
+    revision "2015-01-05" {
+        description "Initial revision of test model";
+    }
+
+    container wipro  {
+
+        config true;
+        leaf id {
+            type uint32;
+        }
+
+    }
+
+
+    grouping data {
+
+         list linkdata {
+                 key "name";
+                 leaf name {
+                     type string;
+                 }
+             }
+        }
+
+
+    rpc get-name {
+         input {
+            leaf first-name {
+                type string;
+            }
+            leaf last-name {
+                type string;
+            }
+         }
+
+         output {
+             uses data;
+          }
+    }
+}

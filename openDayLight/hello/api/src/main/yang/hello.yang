@@ -1,0 +1,30 @@
+module hello {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:hello";
+    prefix "hello";
+
+    revision "2015-01-05" {
+        description "Initial revision of hello model";
+    }
+
+
+    container testing {
+        leaf test {
+            type description;
+        }
+
+    }
+    rpc hello{
+        input{
+            leaf name{
+                type string;
+            }
+        }
+        output{
+            leaf result{
+                type string;
+            }
+
+        }
+    }
+}
